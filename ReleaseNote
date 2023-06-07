@@ -1,15 +1,12 @@
-Release #2.0.99.1
+Release #2.2.0.1
 
-Initial release of Python ControlApp
+Python ControlApp release 2.2
 
-Changes: 
-1. Add APUT Test support
-2. Add P2P Test support
-3. Refactoring API and Helper functions
+Changes:
 
-Known Issues:
-Most of R1.2 relesae test cases are supported execept to following test cases are not verifying due to lack of APUT platform to verify.
-- 11h(10091)
-- MBSSID(10426, 10428, 10430, 10432)
-- Concurrency(10095)
-- 160MHz(10390, 10416)
+Initial release for QuickTrack Testing including
+
+* APUT support
+* STAUT support
+* P2P support
+* AFC DUT support
