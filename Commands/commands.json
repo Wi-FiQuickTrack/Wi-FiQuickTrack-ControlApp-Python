@@ -1,0 +1,79 @@
+{
+    "commands": [
+        {
+            "cmd_name": "get-interface-name",
+            "cmd": "sudo timeout 30  lshw -C network | grep 'logical name: {0}'",
+            "regex": "(?<=logical\\sname:\\s).*"
+        },
+        {
+            "cmd_name": "get-interface-ip-address",
+            "cmd": "timeout 30 ip -4 addr show {0} | grep inet | cut -d'/' -f1",
+            "regex": "(?<=inet\\s).*"
+        },
+        {
+            "cmd_name": "get-channel-switch-status",
+            "cmd": "sudo timeout 30 hostapd_cli -i {0} chan_switch {1} {2}",
+            "regex": ".*"
+        },
+        {
+            "cmd_name": "get-ap-iwdev-ssid",
+            "cmd": "sudo timeout 30 iw dev {0} link | grep SSID",
+            "regex": "(?<=SSID:\\s).*(?=\\s)"
+        },
+        {
+            "cmd_name": "get-mac-addr",
+            "cmd": "sudo timeout 30 iw dev {0} info |grep addr",
+            "regex": "(?<=addr\\s).*"
+        },
+        {
+            "cmd_name": "get-connected-sta-mac",
+            "cmd": "sudo timeout 30 hostapd_cli -i {0} all_sta",
+            "regex": "^.{2}:.{2}:.*"
+        },
+        {
+            "cmd_name": "get-sta-dut-mac-addr",
+            "regex": "((?<=\\saddress=).*)"
+        },
+        {
+            "cmd_name": "get-freq",
+            "regex": "((?<=freq=).*)"
+        },
+        {
+            "cmd_name": "set-sta-param",
+            "cmd": "sudo timeout 5 wpa_cli -i {0} set {1} {2}",
+            "regex": ".*"
+        },
+        {
+            "cmd_name": "send-sta-btm-query",
+            "cmd": "sudo timeout 5 wpa_cli -i {0} WNM_BSS_QUERY{1}",
+            "regex": ".*"
+        },
+        {
+            "cmd_name": "send-sta-anqp-query",
+            "cmd": "sudo timeout 5 wpa_cli -i {0} ANQP_GET {1}{2}",
+            "regex": ".*"
+        },
+        {
+            "cmd_name": "get-sta-ssid",
+            "regex": "((?<=\\sssid=).*)"
+        },
+        {
+            "cmd_name": "get-ap-dut-mac-addr",
+            "regex": "((?<=bssid\\[0\\]=).*)"
+        },
+        {
+            "cmd_name": "get-ap-ssid",
+            "regex": "(?<=\\sssid\\[0\\]=).*"
+        },
+        {
+            "cmd_name": "set-ap-param",
+            "cmd": "sudo timeout 5 hostapd_cli -i {0} set {1} {2}",
+            "regex": ".*"
+        },
+        {
+            "cmd_name": "send-ap-btm-req",
+            "cmd": "sudo timeout 5 hostapd_cli -i {0} bss_tm_req {1}{2}",
+            "regex": ".*"
+        }
+    ]
+}
