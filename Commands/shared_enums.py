@@ -371,6 +371,10 @@ class QuickTrackRequestTLV(int, Enum):
     #  @note TLV Length: Variable, Value: String
     AFC_CA_CERT = 0xB020
 
+    ## @brief Trigger DUT to initiate connection procedure between AFC DUT and SP Access Point
+    #  @note TLV Length: 0x01, Value: 0(Reserved) or 1
+    CONNECT_SP_AP = 0xB021
+
 class QuickTrackResponseTLV(int, Enum):
     """List of TLV used in the QuickTrack API response and ACK messages from the DUT"""
     MESSAGE = 0xa000

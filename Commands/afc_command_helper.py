@@ -86,6 +86,10 @@ class AfcCommandHelper:
             elif type == 3:
                 DutLogger.log(LogCategory.INFO, "Trigger DUT to send test frames for 160MHz bandwidth")
 
+        if QuickTrackRequestTLV.CONNECT_SP_AP in config:
+            connect_sp_ap = config.get(QuickTrackRequestTLV.CONNECT_SP_AP)
+            DutLogger.log(LogCategory.INFO, "Trigger AFC DUT to initiate connection procedure between AFC DUT and SP Access Point")
+
         return "Successful", None
 
     @staticmethod
